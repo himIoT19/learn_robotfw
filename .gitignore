@@ -308,3 +308,4 @@ fabric.properties
 .idea/codestream.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/python,vscode,linux,windows
+/Test_Cases/**/**/1.png
