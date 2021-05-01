@@ -11,5 +11,5 @@ Robot First Test Case
     Sleep    1
     Maximize Browser Window
     Sleep    1
-    Log to console      Test Case Successfully Passed.
+    Log to console      ${\n}Test Case Successfully Passed.
     Close Browser
