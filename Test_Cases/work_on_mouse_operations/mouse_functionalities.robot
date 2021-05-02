@@ -35,7 +35,6 @@ TC_04 Mouse Over
     Take Screenshot    ${path}    mouse_over
 
 *** Keywords ***
-*** Keywords ***
 Open Broser In Fullscreen And Open TheTestingWorld URL
     Open Browser    ${URL}    ${Browser}
     Maximize Browser Window
