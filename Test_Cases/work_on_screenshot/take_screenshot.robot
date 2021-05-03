@@ -1,7 +1,7 @@
 *** Settings ***
 Library            SeleniumLibrary
 Resource           Resources/screenhot_keywords.robot
-Suite Setup        Open Broser In Fullscreen And Open TheTestingWorld URL
+Suite Setup        Open Browser In Fullscreen And Open TheTestingWorld URL
 Suite Teardown     Close Browser
 
 *** Variables ***
@@ -37,6 +37,6 @@ Enter Username Email And Password
     Take Screenshot    ${path}    4
     Log to console    Username: ${pswd}
 
-Open Broser In Fullscreen And Open TheTestingWorld URL
+Open Browser In Fullscreen And Open TheTestingWorld URL
     Open Browser    ${URL}    ${Browser}
     Maximize Browser Window

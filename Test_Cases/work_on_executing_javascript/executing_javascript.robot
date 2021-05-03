@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 Resource           Resources/screenhot_keywords.robot
 
-Suite Setup        Open Broser In Fullscreen And Open TheTestingWorld URL
+Suite Setup        Open Browser In Fullscreen And Open TheTestingWorld URL
 Suite Teardown     Close Browser
 
 *** Variables ***
@@ -18,6 +18,6 @@ Browser Scroll Functionality
     Take Screenshot    ${path}    2
 
 *** Keywords ***
-Open Broser In Fullscreen And Open TheTestingWorld URL
+Open Browser In Fullscreen And Open TheTestingWorld URL
     Open Browser    ${URL}    ${Browser}
     Maximize Browser Window

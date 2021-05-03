@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 Resource           Resources/screenhot_keywords.robot
 
-Test Setup        Open Broser In Fullscreen And Open TheTestingWorld URL
+Test Setup        Open Browser In Fullscreen And Open TheTestingWorld URL
 Test Teardown     Close Browser
 
 *** Variables ***
@@ -24,6 +24,6 @@ TC_02 Key Press With Other Keys
     Take Screenshot    ${path}    enter_key_pressed
 
 *** Keywords ***
-Open Broser In Fullscreen And Open TheTestingWorld URL
+Open Browser In Fullscreen And Open TheTestingWorld URL
     Open Browser    ${URL}    ${Browser}
     Maximize Browser Window
