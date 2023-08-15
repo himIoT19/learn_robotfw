@@ -1,7 +1,7 @@
 *** Settings ***
 
 Library     SeleniumLibrary
-Resource    Resources/screenhot_keywords.robot
+Resource    Resources/screenshot_keywords.robot
 
 Suite Teardown    Close Browser
 

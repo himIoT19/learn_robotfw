@@ -1,3 +1,6 @@
+*** Settings ***
+Library    SeleniumLibrary
+
 *** Variables ***
 ${dir}    ${EXECDIR}
 

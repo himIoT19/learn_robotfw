@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource           Resources/screenhot_keywords.robot
+Resource           Resources/screenshot_keywords.robot
 
 Test Setup        Open Browser In Fullscreen And Open TheTestingWorld URL
 Test Teardown     Close Browser

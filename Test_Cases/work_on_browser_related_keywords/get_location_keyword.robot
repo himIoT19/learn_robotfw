@@ -1,11 +1,16 @@
 *** Settings ***
 
 Library     SeleniumLibrary
-Resource    Resources/screenhot_keywords.robot
+Library    utilities.driver
+
+Resource    Resources/screenshot_keywords.robot
+
+Suite Setup    Install Web Driver    ${Browser}
 
 Suite Teardown    Close Browser
 
 *** Variables ***
+${DRIVER}
 ${browser}    Chrome
 ${url_1}      http://www.thetestingworld.com
 ${url_2}      https://www.facebook.com
@@ -13,7 +18,7 @@ ${path}       Test_Cases/work_on_browser_related_keywords/get_location_screensho
 
 *** Test Cases ***
 Open Two Different URLs OBO And Go Back To First Website And Get URL
-    Open Browser    ${url_1}    ${browser}
+    Open Browser    ${url_1}    ${browser}    executable_path=${DRIVER}
     Maximize Browser Window
     Take Screenshot    ${path}    1
     ${url_one}=    Get Location
