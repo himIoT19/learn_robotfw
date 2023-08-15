@@ -7,7 +7,7 @@ ${URL}        http://www.thetestingworld.com/testings
 
 *** Test Cases ***
 Robot First Test Case
-    Open Browser    ${URL}    ${Browser}
+    Open Browser    ${URL}    ${Browser}    # driver must be in path/or in scripts inside venv
     Sleep    1
     Maximize Browser Window
     Sleep    1
