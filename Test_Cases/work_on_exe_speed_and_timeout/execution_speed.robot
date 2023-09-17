@@ -1,7 +1,11 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    utilities.driver
+
+Suite Setup    Install Web Driver    ${Browser}
 
 *** Variables ***
+${DRIVER}
 ${Browser}     Chrome       # Chrome    # Firefox
 ${URL}         http://www.thetestingworld.com/testings
 ${username}    him9290
@@ -17,7 +21,7 @@ ${css_password}    name:fld_password
 Login to TheTestingWorld Using Execution Speed And Timeout
     ${speed}=    Get Selenium Speed
     Log to console    \nSelenium speed: ${speed}
-    Open Browser    ${URL}    ${Browser}
+    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window
     Set Selenium Speed    1 seconds
     Enter Username Email And Password    ${username}    ${email}    ${password}
