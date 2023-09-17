@@ -7,7 +7,7 @@ Library    Collections
 
 *** Test Cases ***
 Create List
-    @{list_rfw}    Create List    Hello    22    23.23    World    Abcd1234
+    @{list_rfw}    Create List    Hello    ${22}    ${23.23}    World    Abcd1234
     Set Global Variable    ${list_rfw}
     Log to console    Created list: ${list_rfw}
 
