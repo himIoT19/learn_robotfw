@@ -7,14 +7,15 @@ from robot.libraries.BuiltIn import BuiltIn
 
 def install_web_driver(browser=''):
     driver_path = ''
-    if browser.lower() == 'chrome':
-        driver_path = ChromeDriverManager().install()
-        driver = webdriver.Chrome(executable_path=driver_path)
-    elif browser.lower() == 'firefox':
+
+    if browser.lower() == 'firefox':
         driver_path = GeckoDriverManager().install()
         driver = webdriver.Firefox(executable_path=driver_path)
     elif browser.lower() == 'edge':
         driver_path = EdgeChromiumDriverManager().install()
         driver = webdriver.Edge(executable_path=driver_path)
+    else:
+        driver_path = ChromeDriverManager().install()
+        driver = webdriver.Chrome(executable_path=driver_path)
     BuiltIn().set_global_variable("${DRIVER}", driver_path)
     # return driver_path
