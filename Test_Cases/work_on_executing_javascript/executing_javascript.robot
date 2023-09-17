@@ -1,13 +1,17 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    utilities.driver
 Resource           Resources/screenshot_keywords.robot
 
-Suite Setup        Open Browser In Fullscreen And Open TheTestingWorld URL
+Suite Setup        Run Keywords
+...                Install Web Driver
+...                Open Browser In Fullscreen And Open TheTestingWorld URL
 Suite Teardown     Close Browser
 
 *** Variables ***
+${DRIVER}
 ${url}          http://www.thetestingworld.com
-${browser}      Firefox         # Chrome
+${browser}      Chrome         # Chrome
 ${path}         Test_Cases/work_on_executing_javascript/screenshots
 
 
@@ -19,5 +23,5 @@ Browser Scroll Functionality
 
 *** Keywords ***
 Open Browser In Fullscreen And Open TheTestingWorld URL
-    Open Browser    ${URL}    ${Browser}
+    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window
