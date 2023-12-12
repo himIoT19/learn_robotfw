@@ -1,10 +1,16 @@
 *** Settings ***
 Library            SeleniumLibrary
+Library            utilities.driver
+
 Resource           Resources/screenshot_keywords.robot
-Suite Setup        Open Browser In Fullscreen And Open TheTestingWorld URL
-Suite Teardown     Close Browser
+
+Suite Setup    Install Web Driver    ${Browser}
+
+Test Setup        Open Browser In Fullscreen And Open TheTestingWorld URL
+Test Teardown     Close Browser
 
 *** Variables ***
+${DRIVER}
 ${Browser}          Chrome       # Chrome    # Firefox
 ${URL}              http://www.thetestingworld.com/testings
 ${username}         him9290
@@ -38,5 +44,5 @@ Enter Username Email And Password
     Log to console    Username: ${pswd}
 
 Open Browser In Fullscreen And Open TheTestingWorld URL
-    Open Browser    ${URL}    ${Browser}
+    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window

@@ -33,26 +33,32 @@ class TestingListenerTwo:
         logger.info(f"{self.start_suite_var} => Attrs: \n{json.dumps(attrs, sort_keys=True, indent=4)}", also_console=True)
 
     def start_test(self, name, attrs):
-        self.start_test_var = 'start_test'
-        logger.info(f"{self.start_test_var} => Name: {name}")
-        logger.info(f"{self.start_test_var} => Attrs: \n{json.dumps(attrs, sort_keys=True, indent=4)}", also_console=True)
+        self.start_test_var = self._extracted_from_listener_step(
+            'start_test', name, attrs
+        )
 
     def start_keyword(self, name, attrs):
-        self.start_keyword_var = 'start_keyword'
-        logger.info(f"{self.start_keyword_var} => Name: {name}")
-        logger.info(f"{self.start_keyword_var} => Attrs: \n{json.dumps(attrs, sort_keys=True, indent=4)}", also_console=True)
+        self.start_keyword_var = self._extracted_from_listener_step(
+            'start_keyword', name, attrs
+        )
 
     def end_keyword(self, name, attrs):
-        self.end_keyword_var = 'end_keyword'
-        logger.info(f"{self.end_keyword_var} => Name: {name}")
-        logger.info(f"{self.end_keyword_var} => Attrs: \n{json.dumps(attrs, sort_keys=True, indent=4)}", also_console=True)
+        self.end_keyword_var = self._extracted_from_listener_step(
+            'end_keyword', name, attrs
+        )
 
     def end_test(self, name, attrs):
-        self.end_test_var = 'end_test'
-        logger.info(f"{self.end_test_var} => Name: {name}")
-        logger.info(f"{self.end_test_var} => Attrs: \n{json.dumps(attrs, sort_keys=True, indent=4)}", also_console=True)
+        self.end_test_var = self._extracted_from_listener_step('end_test', name, attrs)
 
     def end_suite(self, name, attrs):
-        self.end_suite_var = 'end_suite'
-        logger.info(f"{self.end_suite_var} => Name: {name}")
-        logger.info(f"{self.end_suite_var} => Attrs: \n{json.dumps(attrs, sort_keys=True, indent=4)}", also_console=True)
+        self.end_suite_var = self._extracted_from_listener_step('end_suite', name, attrs)
+
+    @staticmethod
+    def _extracted_from_listener_step(step_name, name, attrs):
+        result = step_name
+        logger.info(f"{result} => Name: {name}")
+        logger.info(
+            f"{result} => Attrs: \n{json.dumps(attrs, sort_keys=True, indent=4)}",
+            also_console=True,
+        )
+        return result
