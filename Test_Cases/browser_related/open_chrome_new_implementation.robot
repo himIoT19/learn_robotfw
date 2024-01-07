@@ -11,6 +11,7 @@ ${URL}        https://www.thetestingworld.com/testings
 ${DRIVER}
 
 *** Test Cases ***
+
 Robot First Test Case
 #    Open Browser    ${URL}    ${Browser}    executable_path=${WEB_DRIVER}
     Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
