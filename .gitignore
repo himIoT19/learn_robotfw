@@ -309,3 +309,4 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/python,vscode,linux,windows
 /Test_Cases/**/**/*.png
+!/.venv/
