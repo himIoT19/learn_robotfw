@@ -6,16 +6,38 @@ from robot.libraries.BuiltIn import BuiltIn
 
 
 def install_web_driver(browser=''):
-    driver_path = ''
+    """
+        Install the web driver based on the specified browser.
 
-    if browser.lower() == 'firefox':
-        driver_path = GeckoDriverManager().install()
-        driver = webdriver.Firefox(executable_path=driver_path)
-    elif browser.lower() == 'edge':
-        driver_path = EdgeChromiumDriverManager().install()
-        driver = webdriver.Edge(executable_path=driver_path)
-    else:
-        driver_path = ChromeDriverManager().install()
-        driver = webdriver.Chrome(executable_path=driver_path)
+        Args:
+            browser (str): The browser to install the web driver for. Defaults to an empty string.
+
+        Returns:
+            None
+
+        Examples:
+            >>> install_web_driver('firefox')
+            # Installs the Firefox web driver and sets the global variable "${DRIVER}" to the driver path.
+
+            >>> install_web_driver('edge')
+            # Installs the Edge web driver and sets the global variable "${DRIVER}" to the driver path.
+
+            >>> install_web_driver()
+            # Installs the Chrome web driver and sets the global variable "${DRIVER}" to the driver path.
+        """
+    driver_managers = {
+        'firefox': GeckoDriverManager,
+        'edge': EdgeChromiumDriverManager,
+        'chrome': ChromeDriverManager  # Default to Chrome if an empty string or unknown browser is provided
+    }
+
+    browser = browser.lower() or 'chrome'  # Default to 'chrome' if an empty string is provided
+    driver_manager_class = driver_managers.get(browser, ChromeDriverManager)
+    driver_path = driver_manager_class().install()
+
+    driver_class = getattr(webdriver, browser.capitalize() if browser != 'edge' else 'Edge')
+    driver_class(executable_path=driver_path)
+
     BuiltIn().set_global_variable("${DRIVER}", driver_path)
-    # return driver_path
+
+# The commented 'return driver_path' can be removed or uncommented based on whether the function should return a value.
