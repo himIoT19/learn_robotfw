@@ -1,14 +1,20 @@
 import json
 
+import os
 
-def read_json_file(filename='data.json'):
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+
+def read_json_file(file_name='data.json'):
     """
 
-    :param filename:
+    :param file_name:
     :return:
     """
+    # Join the directory path and file name
+    full_file_path = os.path.join(dir_path, file_name)
     # Opening JSON file
-    f = open('/home/himu/WS_Home/Python3/Robot_Framework/learn_rf/Test_Cases/unicode_characters/data.json', )
+    f = open(full_file_path)
 
     # returns JSON object as
     # a dictionary
