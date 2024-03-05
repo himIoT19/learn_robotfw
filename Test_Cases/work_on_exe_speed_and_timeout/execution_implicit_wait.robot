@@ -1,6 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    ../../utilities/driver.py
 
+Suite Setup    Install Web Driver    ${Browser}
 Suite Teardown    Close Browser
 
 *** Variables ***
@@ -9,6 +11,7 @@ ${URL}         http://www.thetestingworld.com/testings
 ${username}    him9290
 ${email}       thehimu1990@gmail.com
 ${password}    123456
+${DRIVER}
 
 # CSS Selectors
 ${css_username}    name:fld_username1    # name:fld_username
@@ -17,7 +20,7 @@ ${css_password}    name:fld_password
 
 *** Test Cases ***
 Login to TheTestingWorld Using Execution Speed And Timeout
-    Open Browser    ${URL}    ${Browser}
+    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window
     ${default_time}=    Get Selenium Implicit Wait
     Log to console    Default Time: ${default_time}

@@ -35,8 +35,8 @@ def install_web_driver(browser=''):
     driver_manager_class = driver_managers.get(browser, ChromeDriverManager)
     driver_path = driver_manager_class().install()
 
-    driver_class = getattr(webdriver, browser.capitalize() if browser != 'edge' else 'Edge')
-    driver_class(executable_path=driver_path)
+    # driver_class = getattr(webdriver, browser.capitalize() if browser != 'edge' else 'Edge')
+    # driver_class(executable_path=driver_path)
 
     BuiltIn().set_global_variable("${DRIVER}", driver_path)
 
