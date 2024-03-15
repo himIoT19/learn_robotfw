@@ -21,7 +21,8 @@ ${css_password}    name:fld_password
 Login to TheTestingWorld Using Execution Speed And Timeout
     ${speed}=    Get Selenium Speed
     Log to console    \nSelenium speed: ${speed}
-    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
+    Open Browser    ${URL}    ${Browser}
+#    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window
     Set Selenium Speed    1 seconds
     Enter Username Email And Password    ${username}    ${email}    ${password}

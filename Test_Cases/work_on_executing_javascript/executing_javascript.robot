@@ -23,5 +23,6 @@ Browser Scroll Functionality
 
 *** Keywords ***
 Open Browser In Fullscreen And Open TheTestingWorld URL
-    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
+    Open Browser    ${URL}    ${Browser}
+#    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window

@@ -20,7 +20,8 @@ ${css_password}    name:fld_password
 
 *** Test Cases ***
 Login to TheTestingWorld Using Execution Speed And Timeout
-    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
+    Open Browser    ${URL}    ${Browser}
+#    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window
     ${default_time}=    Get Selenium Implicit Wait
     Log to console    Default Time: ${default_time}

@@ -1,8 +1,12 @@
+import os
+import shutil
+import sys
+
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from selenium import webdriver
-from robot.libraries.BuiltIn import BuiltIn
+# from selenium import webdriver
+# from robot.libraries.BuiltIn import BuiltIn
 
 
 def install_web_driver(browser=''):
@@ -38,6 +42,20 @@ def install_web_driver(browser=''):
     # driver_class = getattr(webdriver, browser.capitalize() if browser != 'edge' else 'Edge')
     # driver_class(executable_path=driver_path)
 
-    BuiltIn().set_global_variable("${DRIVER}", driver_path)
+    # Get the path to the virtual environment
+    venv_path = sys.prefix
+    if os.name == 'posix':
+        path_venv_scripts = f"{venv_path}/bin"
+    else:
+        driver_path = driver_path.replace('/', '\\')
+        path_venv_scripts = f"{venv_path}/Scripts"
+
+    # Copy the chromedriver executable to the destination folder
+    try:
+        shutil.copy(driver_path, path_venv_scripts)
+    except FileNotFoundError as e:
+        print(f"Error : {e}")
+
+    # BuiltIn().set_global_variable("${DRIVER}", driver_path)
 
 # The commented 'return driver_path' can be removed or uncommented based on whether the function should return a value.

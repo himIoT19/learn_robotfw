@@ -12,5 +12,6 @@ ${DRIVER}
 
 *** Test Cases ***
 Robot First Test Case
-    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
+    Open Browser    ${URL}    ${Browser}
+#    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window

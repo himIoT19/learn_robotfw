@@ -17,7 +17,8 @@ ${path}       Test_Cases/work_on_browser_related_keywords/go_back_screenshots
 
 *** Test Cases ***
 Open Two Different URLs OBO And Go Back To First Website
-    Open Browser    ${url_1}    ${browser}    executable_path=${DRIVER}
+    Open Browser    ${url_1}    ${browser}
+#    Open Browser    ${url_1}    ${browser}    executable_path=${DRIVER}
     Maximize Browser Window
     Take Screenshot    ${path}    1
     Go To    ${url_2}

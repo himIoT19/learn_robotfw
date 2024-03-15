@@ -16,7 +16,8 @@ ${path}       Test_Cases/work_on_browser_related_keywords/go_to_screenshots
 
 *** Test Cases ***
 Open Two Different URLs OBO
-    Open Browser    ${url_1}    ${browser}    executable_path=${DRIVER}
+    Open Browser    ${url_1}    ${browser}
+#    Open Browser    ${url_1}    ${browser}    executable_path=${DRIVER}
     Maximize Browser Window
     Take Screenshot    ${path}    1
     Go To    ${url_2}

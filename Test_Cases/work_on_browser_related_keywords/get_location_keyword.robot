@@ -18,7 +18,8 @@ ${path}       Test_Cases/work_on_browser_related_keywords/get_location_screensho
 
 *** Test Cases ***
 Open Two Different URLs OBO And Go Back To First Website And Get URL
-    Open Browser    ${url_1}    ${browser}    executable_path=${DRIVER}
+    Open Browser    ${url_1}    ${browser}
+#    Open Browser    ${url_1}    ${browser}    executable_path=${DRIVER}
     Maximize Browser Window
     Take Screenshot    ${path}    1
     ${url_one}=    Get Location

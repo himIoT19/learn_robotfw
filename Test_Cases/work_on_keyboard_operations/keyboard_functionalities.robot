@@ -33,7 +33,8 @@ TC_02 Key Press With Other Keys
 
 *** Keywords ***
 Open Browser In Fullscreen And Open TheTestingWorld URL
-    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
+    Open Browser    ${URL}    ${Browser}
+#    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Maximize Browser Window
 
 Open Courses Or Training Dropdown And Select Course

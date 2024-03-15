@@ -12,8 +12,8 @@ ${DRIVER}
 
 *** Test Cases ***
 Robot First Test Case
-#    Open Browser    ${URL}    ${Browser}    executable_path=${WEB_DRIVER}
-    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
+    Open Browser    ${URL}    ${Browser}
+#    Open Browser    ${URL}    ${Browser}    executable_path=${DRIVER}
     Sleep    1
     Maximize Browser Window
     Sleep    1
